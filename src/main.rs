@@ -74,29 +74,39 @@ async fn new() -> Result<(), Box<dyn std::error::Error>> {
         .collect::<Vec<&str>>()
         .join("");
 
-    let mut problem = re.replace_all(
-        Box::leak(
-            document
-                .select(&content_selector)
-                .next()
-                .unwrap()
-                .inner_html()
-                .into_boxed_str()
-        ), 
-        " "
-    ).to_string();
+    let mut problem = re
+        .replace_all(
+            Box::leak(
+                document
+                    .select(&content_selector)
+                    .next()
+                    .unwrap()
+                    .inner_html()
+                    .into_boxed_str()
+            ), 
+            " "
+        )
+        .to_string()
+        .replace("$$", " ");
 
     let file_body = format!(
-        "// Problem {} - {}
+        "/*
+Problem {} - {}
 
-//{}
+{}
+*/
 
 fn main() {{
     println!(\"Hello World!\");  
 }}", 
         problem_number,
         html_escape::decode_html_entities(&mut title).to_string(),
-        html_escape::decode_html_entities(&mut problem).split("\n").filter(|s| s != &"").collect::<Vec<&str>>().join("\n//")
+        html_escape::decode_html_entities(&mut problem)
+            .split("\n")
+            .map(|s| s.trim())
+            .filter(|s| s != &"")
+            .collect::<Vec<&str>>()
+            .join("\n")
     );
 
     // Create the file

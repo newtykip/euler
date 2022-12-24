@@ -9,7 +9,7 @@ All of the solutions here are written in rust. [main.rs](src/main.rs) is the hom
 
 ## Challenge Completion
 
-### <!-- completed -->11<!-- completed --> out of 100 public challenges completed.
+### <!-- completed -->12<!-- completed --> out of 100 public challenges completed.
 
 - [x] 1 - [Multiples of 3 or 5](src/bin/1.rs)
 - [x] 2 - [Even Fibonacci numbers](src/bin/2.rs)
@@ -22,7 +22,7 @@ All of the solutions here are written in rust. [main.rs](src/main.rs) is the hom
 - [x] 9 - [Special Pythagorean triplet](src/bin/9.rs)
 - [x] 10 - [Summation of primes](src/bin/10.rs)
 - [x] 11 - [Largest product in a grid](src/bin/11.rs)
-- [ ] 12 - Highly divisible triangular number
+- [x] 12 - [Highly divisible triangular number](src/bin/12.rs)
 - [ ] 13 - Large sum
 - [ ] 14 - Longest Collatz sequence
 - [ ] 15 - Lattice paths

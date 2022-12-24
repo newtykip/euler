@@ -12,9 +12,9 @@ Find the difference between the sum of the squares of the first one hundred natu
 const LOWER_BOUND: usize = 1;
 const UPPER_BOUND: usize = 100;
 
-fn sum_of_squares(lower_bound: usize, upper_bound: usize) -> usize {
+fn sum_of_squares(lower_bound: usize, upper_bound: usize) -> Option<usize> {
 	if lower_bound > upper_bound {
-		panic!("The lower bound must be less than the upper bound!");
+		return None;
 	}
 
 	let mut squares: Vec<usize> = vec![];
@@ -23,20 +23,20 @@ fn sum_of_squares(lower_bound: usize, upper_bound: usize) -> usize {
 		squares.push(i.pow(2));
 	}
 
-	return squares.iter().sum();
+	return Some(squares.iter().sum());
 }
 
-fn square_of_sum(lower_bound: usize, upper_bound: usize) -> usize {
+fn square_of_sum(lower_bound: usize, upper_bound: usize) -> Option<usize> {
 	if lower_bound > upper_bound {
-		panic!("The lower bound must be less than the upper bound!");
+		return None;
 	}
 
-	return ((lower_bound..(upper_bound + 1)).sum::<usize>()).pow(2);
+	return Some(((lower_bound..(upper_bound + 1)).sum::<usize>()).pow(2));
 }
 
 fn main() {
-	let squared_sum = square_of_sum(LOWER_BOUND, UPPER_BOUND);
-	let summed_squares = sum_of_squares(LOWER_BOUND, UPPER_BOUND);
+	let squared_sum = square_of_sum(LOWER_BOUND, UPPER_BOUND).unwrap();
+	let summed_squares = sum_of_squares(LOWER_BOUND, UPPER_BOUND).unwrap();
 	let difference = squared_sum - summed_squares;
 
 	println!("For the numbers between {LOWER_BOUND} and {UPPER_BOUND}, the difference between the square of the sum and the sum of the squares is {difference}");

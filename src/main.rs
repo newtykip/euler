@@ -97,7 +97,7 @@ Problem {} - {}
 */
 
 fn main() {{
-    println!(\"Hello World!\");  
+    println!(\"Hello World!\");
 }}", 
         problem_number,
         html_escape::decode_html_entities(&mut title).to_string(),
@@ -171,12 +171,10 @@ fn main() {{
     Ok(())
 }
 
-// todo: runner
-
 fn main() {
     let value = Value::parse();
 
     match value.command {
-        Commands::New => new().unwrap(),
+        Commands::New => new().unwrap()
     }
 }

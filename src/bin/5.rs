@@ -31,9 +31,9 @@ fn gcd(a: usize, b: usize) -> usize {
 	return y;
 }
 
-fn first_value_divisible_by(start: usize, end: usize) -> usize { 
+fn first_value_divisible_by(start: usize, end: usize) -> Option<usize> { 
 	if start > end {
-		panic!("You can not start on a value higher than your end value!");
+		return None;
 	}
 
 	let mut result: usize = 1;
@@ -42,11 +42,11 @@ fn first_value_divisible_by(start: usize, end: usize) -> usize {
 		result = (result * i) / gcd(result, i);
 	}
 
-	return result;
+	return Some(result);
 }
 
 fn main() {
-	let number = first_value_divisible_by(1, 20);
+	let number = first_value_divisible_by(1, 20).unwrap();
 
 	println!("The smallest number that is divisible by all integers between 1 and 20 is {number}");
 }

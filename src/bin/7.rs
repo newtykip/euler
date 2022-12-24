@@ -10,32 +10,25 @@ use std::f64::consts::E;
 // Implementation of the Sieve of Eratosthenes
 // https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 fn find_primes(upper_bound: usize) -> Vec<usize> {
-	let mut values: Vec<bool> = (2..(upper_bound + 1)).map(|_| true).collect();
-	let mut i = 2;
+	let mut mask = vec![true; upper_bound];
+	let mut primes: Vec<usize> = vec![];
 
-	// Adjust values array
-	while i < (upper_bound as f64).sqrt() as usize {
-		if values[i] {
-			let mut j = i.pow(2);
+	mask[0] = false;
+	mask[1] = false;
+
+	for i in 2..upper_bound {
+		if mask[i] {
+			primes.push(i);
+
+			let mut j = 2 * i;
 
 			while j < upper_bound {
-				values[j] = false;
+				mask[j] = false;
 				j += i;
 			}
 		}
-
-		i += 1;
 	}
 
-	// Find the indexes where the values are true
-	let mut primes: Vec<usize> = vec![];
-
-	for i in 0..values.len() {
-		if values[i] {
-			primes.push(i);
-		}
-	}
-	
 	return primes;
 }
 
@@ -52,13 +45,17 @@ fn upper_bound_for_nth_prime(n: usize) -> usize {
 	return n * (ln_n + ln_n.log(E)).ceil() as usize;
 }
 
-fn nth_prime(n: usize) -> usize {
+fn nth_prime(n: usize) -> Option<usize> {
+	if n < 1 {
+		return None;
+	}
+
 	let primes = find_primes(upper_bound_for_nth_prime(n));
-	return primes[n - 1];
+	return Some(primes[n - 1]);
 }
 
 fn main() {
-	let number = nth_prime(10001);
+	let number = nth_prime(10001).unwrap();
 
 	println!("The 10,001st prime number is {number}");
 }

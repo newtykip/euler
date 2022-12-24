@@ -5,11 +5,11 @@
 
 > My solutions to many of Project Euler's problems.
 
-All of the solutions here are written in rust. [main.rs](src/main.rs) is the home to my helper command line that can As per the rules of the challenge, I may only publish the solutions to the first 100 problems here, so I will stop after that but still continue the challenge.
+All of the solutions here are written in rust. [main.rs](src/main.rs) is the home to my helper command line that can scaffold files for me quickly, prefaced with a statement of the problem! As per the rules of the challenge, I may only publish the solutions to the first 100 problems here, so I will stop after that but still continue the challenge.
 
 ## Challenge Completion
 
-<!-- completed -->9<!-- completed --> out of 100 public challenges completed.
+### <!-- completed -->10<!-- completed --> out of 100 public challenges completed.
 
 - [x] 1 - [Multiples of 3 or 5](src/bin/1.rs)
 - [x] 2 - [Even Fibonacci numbers](src/bin/2.rs)
@@ -20,7 +20,7 @@ All of the solutions here are written in rust. [main.rs](src/main.rs) is the hom
 - [x] 7 - [10001st prime](src/bin/7.rs)
 - [x] 8 - [Largest product in a series](src/bin/8.rs)
 - [x] 9 - [Special Pythagorean triplet](src/bin/9.rs)
-- [ ] 10 - Summation of primes
+- [x] 10 - [Summation of primes](src/bin/10.rs)
 - [ ] 11 - Largest product in a grid
 - [ ] 12 - Highly divisible triangular number
 - [ ] 13 - Large sum

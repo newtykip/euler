@@ -29,9 +29,9 @@ const NUMBER: &str = "7316717653133062491922511967442657474235534919493496983520
 
 const ADJACENT_DIGITS: usize = 13;
 
-fn largest_product(number: &str, adjacent_digits: usize) -> usize {
+fn largest_product(number: &str, adjacent_digits: usize) -> Option<usize> {
 	if adjacent_digits > number.len() {
-		panic!("I can not check for the product of {} adjacent digits when there is only {} digits in the number!", adjacent_digits, number.len());
+		return None;
 	}
 
 	let mut cursor_index = 0;
@@ -68,11 +68,11 @@ fn largest_product(number: &str, adjacent_digits: usize) -> usize {
 	products.sort();
 	products.reverse();
 
-	return products[0];
+	return Some(products[0]);
 }
 
 fn main() {
-	let value = largest_product(NUMBER, ADJACENT_DIGITS);
+	let value = largest_product(NUMBER, ADJACENT_DIGITS).unwrap();
 	
 	println!("The thirteen adjacent digits in the number that have the greatest product have a product of {value}");
 }

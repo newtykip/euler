@@ -9,7 +9,7 @@ All of the solutions here are written in rust. [main.rs](src/main.rs) is the hom
 
 ## Challenge Completion
 
-<!-- completed -->8<!-- completed --> out of 100 public challenges completed.
+<!-- completed -->9<!-- completed --> out of 100 public challenges completed.
 
 - [x] 1 - [Multiples of 3 or 5](src/bin/1.rs)
 - [x] 2 - [Even Fibonacci numbers](src/bin/2.rs)
@@ -19,7 +19,7 @@ All of the solutions here are written in rust. [main.rs](src/main.rs) is the hom
 - [x] 6 - [Sum square difference](src/bin/6.rs)
 - [x] 7 - [10001st prime](src/bin/7.rs)
 - [x] 8 - [Largest product in a series](src/bin/8.rs)
-- [ ] 9 - Special Pythagorean triplet
+- [x] 9 - [Special Pythagorean triplet](src/bin/9.rs)
 - [ ] 10 - Summation of primes
 - [ ] 11 - Largest product in a grid
 - [ ] 12 - Highly divisible triangular number

@@ -166,7 +166,7 @@ fn main() {{
     drop(readme_file);
 
     // Announce completion!
-    println!("{}", "File successfully created! Good luck (:".green());
+    println!("{}", "File successfully created! Good luck (:".green().bold());
 
     Ok(())
 }

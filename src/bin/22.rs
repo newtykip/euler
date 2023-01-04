@@ -24,7 +24,7 @@ fn name_score(name: String, position: usize) -> usize {
     let mut letter_sum: usize = 0;
 
     for char in name.chars() {
-        // Letters start in ASCII at 65
+        // Capital letters start in ASCII at 65
         letter_sum += (char as usize) - 64;
     }
 

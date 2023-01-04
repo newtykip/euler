@@ -11,7 +11,7 @@ I originally started the challenge in [the-honk](https://github.com/newtykins/th
 
 ## Challenge Completion
 
-### <!-- completed -->17<!-- completed --> out of 100 public challenges completed.
+### <!-- completed -->18<!-- completed --> out of 100 public challenges completed.
 
 - [x] 1 - [Multiples of 3 or 5](src/bin/1.rs)
 - [x] 2 - [Even Fibonacci numbers](src/bin/2.rs)
@@ -54,7 +54,7 @@ I originally started the challenge in [the-honk](https://github.com/newtykins/th
 - [ ] 39 - Integer right triangles
 - [ ] 40 - Champernowne's constant
 - [ ] 41 - Pandigital prime
-- [ ] 42 - Coded triangle numbers
+- [x] 42 - [Coded triangle numbers](src/bin/42.rs)
 - [ ] 43 - Sub-string divisibility
 - [ ] 44 - Pentagon numbers
 - [ ] 45 - Triangular, pentagonal, and hexagonal

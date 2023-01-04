@@ -1,4 +1,4 @@
-use clap::{Parser, Subcommand};
+use clap::{Args, Parser, Subcommand};
 use owo_colors::OwoColorize;
 use regex::Regex;
 use scraper::{Html, Selector};
@@ -6,7 +6,6 @@ use std::io::BufReader;
 use std::{
     fs::{self, File, OpenOptions},
     io::{BufRead, Write},
-    path::Path,
 };
 
 #[derive(Parser)]
@@ -16,56 +15,66 @@ struct Value {
     command: Commands,
 }
 
+#[derive(Args, Clone)]
+struct NewOptions {
+    /// The problem to complete
+    problem: Option<u16>,
+}
+
 #[derive(Subcommand)]
 enum Commands {
     /// Handles the initialisation of a new Project Euler Problem
-    New,
+    New(NewOptions),
 }
 
 #[tokio::main]
-async fn new() -> Result<(), Box<dyn std::error::Error>> {
-    let base_dir = Path::new(env!("CARGO_MANIFEST_DIR"));
-    let code_path = base_dir.join("src").join("bin");
+async fn new(problem: Option<u16>) -> Result<(), Box<dyn std::error::Error>> {
+    let code_path = euler::code_path();
+    let problem_number: u16;
 
-    let problem_number = requestty::prompt_one(
-        requestty::Question::int("problemNumber")
-            .message("Which problem would you like to solve?")
-            .validate(|n, _| {
-                // All numbers must be positive
-                let mut pass = n > 0;
+    // Determine the problem number
+    match problem {
+        Some(n) => problem_number = n,
+        None => {
+            problem_number = requestty::prompt_one(
+                requestty::Question::int("problemNumber")
+                    .message("Which problem would you like to solve?")
+                    .validate(|n, _| {
+                        // All numbers must be positive
+                        let mut pass = n > 0;
 
-                // Ensure that the problem has not already got a file associated with it
-                let files = fs::read_dir(&code_path).unwrap();
+                        // Ensure that the problem has not already got a file associated with it
+                        let files = fs::read_dir(&code_path).unwrap();
 
-                for file in files {
-                    let file_number = file
-                        .unwrap()
-                        .file_name()
-                        .to_str()
-                        .unwrap()
-                        .split('.')
-                        .collect::<Vec<&str>>()[0]
-                        .parse::<i64>()
-                        .unwrap();
+                        for file in files {
+                            let file_number = file
+                                .unwrap()
+                                .file_name()
+                                .to_str()
+                                .unwrap()
+                                .split('.')
+                                .collect::<Vec<&str>>()[0]
+                                .parse::<i64>()
+                                .unwrap();
 
-                    if n == file_number && pass {
-                        pass = false;
-                    }
-                }
+                            if n == file_number && pass {
+                                pass = false;
+                            }
+                        }
 
-                if pass {
-                    Ok(())
-                } else {
-                    Err("Please ensure that your input is valid!".to_owned())
-                }
-            })
-            .build(),
-    )
-    .unwrap()
-    .as_int()
-    .unwrap();
-
-    // todo: thoughts documents (?)
+                        if pass {
+                            Ok(())
+                        } else {
+                            Err("Please ensure that your input is valid!".to_owned())
+                        }
+                    })
+                    .build(),
+            )
+            .unwrap()
+            .as_int()
+            .unwrap() as u16;
+        }
+    }
 
     // Fetch the problem information
     let body = reqwest::get(format!("https://projecteuler.net/problem={problem_number}"))
@@ -125,7 +134,7 @@ fn main() {{
     drop(file);
 
     // Read the contents of the readme for editing
-    let readme_path = base_dir.join("readme.md");
+    let readme_path = euler::readme_path();
 
     let mut readme_file = OpenOptions::new().read(true).open(&readme_path).unwrap();
 
@@ -188,6 +197,6 @@ fn main() {
     let value = Value::parse();
 
     match value.command {
-        Commands::New => new().unwrap(),
+        Commands::New(options) => new(options.problem).unwrap(),
     }
 }

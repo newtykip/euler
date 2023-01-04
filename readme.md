@@ -11,7 +11,7 @@ I originally started the challenge in [the-honk](https://github.com/newtykins/th
 
 ## Challenge Completion
 
-### <!-- completed -->15<!-- completed --> out of 100 public challenges completed.
+### <!-- completed -->17<!-- completed --> out of 100 public challenges completed.
 
 - [x] 1 - [Multiples of 3 or 5](src/bin/1.rs)
 - [x] 2 - [Even Fibonacci numbers](src/bin/2.rs)
@@ -34,7 +34,7 @@ I originally started the challenge in [the-honk](https://github.com/newtykins/th
 - [ ] 19 - Counting Sundays
 - [ ] 20 - Factorial digit sum
 - [ ] 21 - Amicable numbers
-- [ ] 22 - Names scores
+- [x] 22 - [Names scores](src/bin/22.rs)
 - [ ] 23 - Non-abundant sums
 - [ ] 24 - Lexicographic permutations
 - [ ] 25 - 1000-digit Fibonacci number

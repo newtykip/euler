@@ -9,7 +9,7 @@ All of the solutions here are written in rust. [main.rs](src/main.rs) is the hom
 
 ## Challenge Completion
 
-### <!-- completed -->14<!-- completed --> out of 100 public challenges completed.
+### <!-- completed -->15<!-- completed --> out of 100 public challenges completed.
 
 - [x] 1 - [Multiples of 3 or 5](src/bin/1.rs)
 - [x] 2 - [Even Fibonacci numbers](src/bin/2.rs)
@@ -25,7 +25,7 @@ All of the solutions here are written in rust. [main.rs](src/main.rs) is the hom
 - [x] 12 - [Highly divisible triangular number](src/bin/12.rs)
 - [x] 13 - [Large sum](src/bin/13.rs)
 - [x] 14 - [Longest Collatz sequence](src/bin/14.rs)
-- [ ] 15 - Lattice paths
+- [x] 15 - [Lattice paths](src/bin/15.rs)
 - [ ] 16 - Power digit sum
 - [ ] 17 - Number letter counts
 - [ ] 18 - Maximum path sum I

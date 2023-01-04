@@ -13,31 +13,31 @@ const LOWER_BOUND: usize = 1;
 const UPPER_BOUND: usize = 100;
 
 fn sum_of_squares(lower_bound: usize, upper_bound: usize) -> Option<usize> {
-	if lower_bound > upper_bound {
-		return None;
-	}
+    if lower_bound > upper_bound {
+        return None;
+    }
 
-	let mut squares: Vec<usize> = vec![];
+    let mut squares: Vec<usize> = vec![];
 
-	for i in lower_bound..(upper_bound + 1) {
-		squares.push(i.pow(2));
-	}
+    for i in lower_bound..(upper_bound + 1) {
+        squares.push(i.pow(2));
+    }
 
-	return Some(squares.iter().sum());
+    return Some(squares.iter().sum());
 }
 
 fn square_of_sum(lower_bound: usize, upper_bound: usize) -> Option<usize> {
-	if lower_bound > upper_bound {
-		return None;
-	}
+    if lower_bound > upper_bound {
+        return None;
+    }
 
-	return Some(((lower_bound..(upper_bound + 1)).sum::<usize>()).pow(2));
+    return Some(((lower_bound..(upper_bound + 1)).sum::<usize>()).pow(2));
 }
 
 fn main() {
-	let squared_sum = square_of_sum(LOWER_BOUND, UPPER_BOUND).unwrap();
-	let summed_squares = sum_of_squares(LOWER_BOUND, UPPER_BOUND).unwrap();
-	let difference = squared_sum - summed_squares;
+    let squared_sum = square_of_sum(LOWER_BOUND, UPPER_BOUND).unwrap();
+    let summed_squares = sum_of_squares(LOWER_BOUND, UPPER_BOUND).unwrap();
+    let difference = squared_sum - summed_squares;
 
-	println!("For the numbers between {LOWER_BOUND} and {UPPER_BOUND}, the difference between the square of the sum and the sum of the squares is {difference}");
+    println!("For the numbers between {LOWER_BOUND} and {UPPER_BOUND}, the difference between the square of the sum and the sum of the squares is {difference}");
 }

@@ -8,26 +8,26 @@ Find the sum of all the primes below two million.
 // Implementation of the Sieve of Eratosthenes
 // https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
 fn find_primes(upper_bound: usize) -> Vec<usize> {
-	let mut mask = vec![true; upper_bound];
-	let mut primes: Vec<usize> = vec![];
+    let mut mask = vec![true; upper_bound];
+    let mut primes: Vec<usize> = vec![];
 
-	mask[0] = false;
-	mask[1] = false;
+    mask[0] = false;
+    mask[1] = false;
 
-	for i in 2..upper_bound {
-		if mask[i] {
-			primes.push(i);
+    for i in 2..upper_bound {
+        if mask[i] {
+            primes.push(i);
 
-			let mut j = 2 * i;
+            let mut j = 2 * i;
 
-			while j < upper_bound {
-				mask[j] = false;
-				j += i;
-			}
-		}
-	}
+            while j < upper_bound {
+                mask[j] = false;
+                j += i;
+            }
+        }
+    }
 
-	return primes;
+    return primes;
 }
 
 fn sum_of_primes(upper_bound: usize) -> usize {

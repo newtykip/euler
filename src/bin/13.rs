@@ -204,7 +204,7 @@ const NUMBERS: [f64; 100] = [
     77158542502016545090413245809786882778948721859617.0,
     72107838435069186155435662884062257473692284509516.0,
     20849603980134001723930671666823555245252804609722.0,
-    53503534226472524250874054075591789781264330331690.0
+    53503534226472524250874054075591789781264330331690.0,
 ];
 
 fn first_n_digits(number: f64, n: usize) -> Option<usize> {
@@ -214,7 +214,9 @@ fn first_n_digits(number: f64, n: usize) -> Option<usize> {
         return None;
     }
 
-    let new_number = String::from_iter(string_number.chars().collect::<Vec<char>>()[0..n].iter()).parse::<usize>().unwrap();
+    let new_number = String::from_iter(string_number.chars().collect::<Vec<char>>()[0..n].iter())
+        .parse::<usize>()
+        .unwrap();
 
     return Some(new_number);
 }

@@ -30,49 +30,49 @@ const NUMBER: &str = "7316717653133062491922511967442657474235534919493496983520
 const ADJACENT_DIGITS: usize = 13;
 
 fn largest_product(number: &str, adjacent_digits: usize) -> Option<usize> {
-	if adjacent_digits > number.len() {
-		return None;
-	}
+    if adjacent_digits > number.len() {
+        return None;
+    }
 
-	let mut cursor_index = 0;
-	let mut selections: Vec<Vec<u32>> = vec![];
-	let characters = number.chars().collect::<Vec<char>>();
+    let mut cursor_index = 0;
+    let mut selections: Vec<Vec<u32>> = vec![];
+    let characters = number.chars().collect::<Vec<char>>();
 
-	while cursor_index < number.len() {
-		let mut selection: Vec<u32> = vec![];
+    while cursor_index < number.len() {
+        let mut selection: Vec<u32> = vec![];
 
-		for i in 0..adjacent_digits {
-			if cursor_index + i >= number.len() - 1 {
-				break;
-			}
+        for i in 0..adjacent_digits {
+            if cursor_index + i >= number.len() - 1 {
+                break;
+            }
 
-			selection.push(characters[cursor_index + i].to_digit(10).unwrap());
-		}
+            selection.push(characters[cursor_index + i].to_digit(10).unwrap());
+        }
 
-		selections.push(selection);
-		cursor_index += 1;
-	}
+        selections.push(selection);
+        cursor_index += 1;
+    }
 
-	let mut products: Vec<usize> = vec![];
+    let mut products: Vec<usize> = vec![];
 
-	for i in 0..selections.len() {
-		let mut product: usize = 1;
+    for i in 0..selections.len() {
+        let mut product: usize = 1;
 
-		for value in &selections[i] {
-			product *= *value as usize;
-		}
+        for value in &selections[i] {
+            product *= *value as usize;
+        }
 
-		products.push(product);
-	}
+        products.push(product);
+    }
 
-	products.sort();
-	products.reverse();
+    products.sort();
+    products.reverse();
 
-	return Some(products[0]);
+    return Some(products[0]);
 }
 
 fn main() {
-	let value = largest_product(NUMBER, ADJACENT_DIGITS).unwrap();
-	
-	println!("The thirteen adjacent digits in the number that have the greatest product have a product of {value}");
+    let value = largest_product(NUMBER, ADJACENT_DIGITS).unwrap();
+
+    println!("The thirteen adjacent digits in the number that have the greatest product have a product of {value}");
 }

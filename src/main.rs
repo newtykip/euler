@@ -1,15 +1,19 @@
 use clap::{Parser, Subcommand};
 use owo_colors::OwoColorize;
-use std::{fs::{self, File, OpenOptions}, path::Path, io::{Write, BufRead}};
-use scraper::{Html, Selector};
 use regex::Regex;
-use std::io::{BufReader};
+use scraper::{Html, Selector};
+use std::io::BufReader;
+use std::{
+    fs::{self, File, OpenOptions},
+    io::{BufRead, Write},
+    path::Path,
+};
 
 #[derive(Parser)]
 #[clap(about, author, version)]
 struct Value {
     #[clap(subcommand)]
-    command: Commands
+    command: Commands,
 }
 
 #[derive(Subcommand)]
@@ -55,13 +59,19 @@ async fn new() -> Result<(), Box<dyn std::error::Error>> {
                     Err("Please ensure that your input is valid!".to_owned())
                 }
             })
-            .build()
-    ).unwrap().as_int().unwrap();
+            .build(),
+    )
+    .unwrap()
+    .as_int()
+    .unwrap();
 
     // todo: thoughts documents (?)
-    
+
     // Fetch the problem information
-    let body = reqwest::get(format!("https://projecteuler.net/problem={problem_number}")).await?.text().await?;
+    let body = reqwest::get(format!("https://projecteuler.net/problem={problem_number}"))
+        .await?
+        .text()
+        .await?;
 
     let document = Html::parse_document(body.as_str());
     let title_selector = Selector::parse("h2")?;
@@ -79,12 +89,12 @@ async fn new() -> Result<(), Box<dyn std::error::Error>> {
     let mut problem = html_tag_regex
         .replace_all(
             document
-                    .select(&content_selector)
-                    .next()
-                    .unwrap()
-                    .inner_html()
-                    .as_str(),
-            " "
+                .select(&content_selector)
+                .next()
+                .unwrap()
+                .inner_html()
+                .as_str(),
+            " ",
         )
         .to_string()
         .replace("$$", " ");
@@ -98,7 +108,7 @@ Problem {} - {}
 
 fn main() {{
     println!(\"Hello World!\");
-}}", 
+}}",
         problem_number,
         html_escape::decode_html_entities(&mut title).to_string(),
         html_escape::decode_html_entities(&mut problem)
@@ -117,16 +127,12 @@ fn main() {{
     // Read the contents of the readme for editing
     let readme_path = base_dir.join("readme.md");
 
-    let mut readme_file = OpenOptions::new()
-        .read(true)
-        .open(&readme_path)
-        .unwrap();
+    let mut readme_file = OpenOptions::new().read(true).open(&readme_path).unwrap();
 
     let mut readme_content = BufReader::new(&readme_file)
         .lines()
         .map(|s| s.unwrap())
         .collect::<Vec<String>>();
-
 
     drop(readme_file);
 
@@ -138,7 +144,10 @@ fn main() {{
 
         if readme_regex.is_match(line) {
             let matched = readme_regex.captures(line).unwrap();
-            readme_content[i] = format!("- [x] {problem_number} - [{}](src/bin/{problem_number}.rs)", &matched[1].trim());
+            readme_content[i] = format!(
+                "- [x] {problem_number} - [{}](src/bin/{problem_number}.rs)",
+                &matched[1].trim()
+            );
         }
     }
 
@@ -147,26 +156,30 @@ fn main() {{
 
     let completed_regex = Regex::new("<!-- completed -->([0-9]+)<!-- completed -->").unwrap();
 
-    let new_completed = completed_regex
-        .captures(readme_string.as_str())
-        .unwrap()[1]
+    let new_completed = completed_regex.captures(readme_string.as_str()).unwrap()[1]
         .parse::<u8>()
-        .unwrap() + 1;
+        .unwrap()
+        + 1;
 
-    readme_string = completed_regex.replace(readme_string.as_str(), format!("<!-- completed -->{new_completed}<!-- completed -->")).to_string();
+    readme_string = completed_regex
+        .replace(
+            readme_string.as_str(),
+            format!("<!-- completed -->{new_completed}<!-- completed -->"),
+        )
+        .to_string();
 
     // Write the new content to the readme
-    readme_file = OpenOptions::new()
-        .write(true)
-        .open(&readme_path)
-        .unwrap();
+    readme_file = OpenOptions::new().write(true).open(&readme_path).unwrap();
 
     readme_file.write(readme_string.as_bytes()).unwrap();
 
     drop(readme_file);
 
     // Announce completion!
-    println!("{}", "File successfully created! Good luck (:".green().bold());
+    println!(
+        "{}",
+        "File successfully created! Good luck (:".green().bold()
+    );
 
     Ok(())
 }
@@ -175,6 +188,6 @@ fn main() {
     let value = Value::parse();
 
     match value.command {
-        Commands::New => new().unwrap()
+        Commands::New => new().unwrap(),
     }
 }

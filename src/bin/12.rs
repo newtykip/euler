@@ -14,7 +14,7 @@ fn factors(number: usize) -> Vec<Vec<usize>> {
     let mut factors: Vec<Vec<usize>> = vec![vec![1, number]];
     let is_even = number % 2 == 0;
 
-    for current_factor in (if is_even {2} else {3})..(max + 1) {
+    for current_factor in (if is_even { 2 } else { 3 })..(max + 1) {
         if number % current_factor != 0 {
             continue;
         }

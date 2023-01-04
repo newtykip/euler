@@ -7,22 +7,25 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 */
 
 fn fibonacci(upper_bound: usize) -> Vec<usize> {
-	// F_0 = 1, F_1 = 2
-	let mut sequence = vec![1, 2];
+    // F_0 = 1, F_1 = 2
+    let mut sequence = vec![1, 2];
 
-	// F_n = F_(n - 1) + F_(n - 2)
-	while sequence[sequence.len() - 1] < upper_bound {
-		let new_value = sequence[sequence.len() - 1] + sequence[sequence.len() - 2];
-		sequence.push(new_value);
-	}
+    // F_n = F_(n - 1) + F_(n - 2)
+    while sequence[sequence.len() - 1] < upper_bound {
+        let new_value = sequence[sequence.len() - 1] + sequence[sequence.len() - 2];
+        sequence.push(new_value);
+    }
 
-	return sequence;
+    return sequence;
 }
 
 fn main() {
-	let sequence = fibonacci(4000000);
-	let even = sequence.iter().filter(|n| *n % 2 == 0);
-	let sum: usize = even.sum();
+    let sequence = fibonacci(4000000);
+    let even = sequence.iter().filter(|n| *n % 2 == 0);
+    let sum: usize = even.sum();
 
-	print!("The sum of the first 4000000 even fibonacci numbers is {}", sum);
+    print!(
+        "The sum of the first 4000000 even fibonacci numbers is {}",
+        sum
+    );
 }

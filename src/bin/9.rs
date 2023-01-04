@@ -24,7 +24,7 @@ There exists exactly one Pythagorean triplet for which  a  +  b  +  c  = 1000. F
 fn triplet_with_sum(sum: isize) -> Option<(isize, isize, isize)> {
     for a in 1..(sum + 1) {
         let b: isize = ((2 * a * sum) - sum.pow(2)) / (2 * (a - sum));
-        let c: isize  = sum - a - b;
+        let c: isize = sum - a - b;
 
         if a.pow(2) + b.pow(2) == c.pow(2) {
             return Some((a, b, c));
@@ -36,6 +36,6 @@ fn triplet_with_sum(sum: isize) -> Option<(isize, isize, isize)> {
 
 fn main() {
     let (a, b, c) = triplet_with_sum(1000).unwrap();
-    
+
     println!("a = {a}, b = {b}, c = {c} // abc = {}", a * b * c);
 }

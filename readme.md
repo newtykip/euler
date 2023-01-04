@@ -7,6 +7,8 @@
 
 All of the solutions here are written in rust. [main.rs](src/main.rs) is the home to my helper command line that can scaffold files for me quickly, prefaced with a statement of the problem! As per the rules of the challenge, I may only publish the solutions to the first 100 problems here, so I will stop after that but still continue the challenge.
 
+I originally started the challenge in [the-honk](https://github.com/newtykins/the-honk) in TypeScript, and am currently in the process of porting over all of my already completed challenges. Check out my old work [here](https://github.com/newtykins/the-honk/tree/main/challenges/euler).
+
 ## Challenge Completion
 
 ### <!-- completed -->15<!-- completed --> out of 100 public challenges completed.
@@ -111,3 +113,5 @@ All of the solutions here are written in rust. [main.rs](src/main.rs) is the hom
 - [ ] 98 - Anagramic squares
 - [ ] 99 - Largest exponential
 - [ ] 100 - Arranged probability
+
+<sub>Check out Project Euler <a href="https://projecteuler.net">here</a>.</sub>

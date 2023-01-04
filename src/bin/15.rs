@@ -23,7 +23,6 @@ fn count_lattice_paths(width: usize, height: usize) -> usize {
     if width != height {
         return binomial(width + height, width).unwrap();
     }
-    
     // (2n, n)
     else {
         let mut result: usize = 1;

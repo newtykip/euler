@@ -8,7 +8,7 @@ Using  words.txt  (right click and 'Save Link/Target As...'), a 16K text file co
 */
 
 use regex::Regex;
-use std::{fs, ops::Div};
+use std::fs;
 
 fn read_words() -> Vec<String> {
     return fs::read_to_string(euler::resources_path().join("p042_words.txt"))
@@ -25,9 +25,9 @@ fn read_words() -> Vec<String> {
 }
 
 fn is_triangle_number(number: usize) -> bool {
-    let solution = (((8 * number + 1) as f64).sqrt() - 1.0).div(2.0);
+    let discrim_sqrt = ((8 * number + 1) as f64).sqrt();
 
-    return solution.fract() == 0.0 && solution > 0.0;
+    return discrim_sqrt.fract() == 0.0;
 }
 
 fn count_triangle_words(words: Vec<String>) -> usize {

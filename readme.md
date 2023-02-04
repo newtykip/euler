@@ -11,7 +11,7 @@ I originally started the challenge in [the-honk](https://github.com/newtykins/th
 
 ## Challenge Completion
 
-### <!-- completed -->18<!-- completed --> out of 100 public challenges completed.
+### <!-- completed -->19<!-- completed --> out of 100 public challenges completed.
 
 - [x] 1 - [Multiples of 3 or 5](src/bin/1.rs)
 - [x] 2 - [Even Fibonacci numbers](src/bin/2.rs)
@@ -79,7 +79,7 @@ I originally started the challenge in [the-honk](https://github.com/newtykins/th
 - [ ] 64 - Odd period square roots
 - [ ] 65 - Convergents of e
 - [ ] 66 - Diophantine equation
-- [ ] 67 - Maximum path sum II
+- [x] 67 - [Maximum path sum II](src/bin/67.rs)
 - [ ] 68 - Magic 5-gon ring
 - [ ] 69 - Totient maximum
 - [ ] 70 - Totient permutation

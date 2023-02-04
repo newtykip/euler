@@ -15,13 +15,17 @@ fn get_digits(number: usize) -> Vec<u32> {
 }
 
 fn power_digit_sum(base: usize, power: u32) -> usize {
-    let answer = BigUint::new(get_digits(base)).pow(power).to_string().chars().collect::<Vec<char>>();
+    let answer = BigUint::new(get_digits(base))
+        .pow(power)
+        .to_string()
+        .chars()
+        .collect::<Vec<char>>();
 
     let mut sum = 0;
 
     for i in 0..answer.len() {
         let number = answer[i].to_string().parse::<usize>().unwrap();
-        
+
         sum += number;
     }
 

@@ -6,9 +6,8 @@ If all the numbers from 1 to 1000 (one thousand) inclusive were written out in w
 NOTE:  Do not count spaces or hyphens. For example, 342 (three hundred and forty-two) contains 23 letters and 115 (one hundred and fifteen) contains 20 letters. The use of "and" when writing out numbers is in compliance with British usage.
 */
 
-use std::ops::Div;
-
 use phf::phf_map;
+use std::ops::Div;
 
 const TRANSLATIONS: phf::Map<u16, &'static str> = phf_map! {
     0u16 => "",
@@ -58,7 +57,10 @@ fn number_to_words(number: usize) -> String {
     n -= hundreds * 100;
 
     if hundreds > 0 {
-        out = format!("{out}{}hundred", TRANSLATIONS.get(&(hundreds as u16)).unwrap());
+        out = format!(
+            "{out}{}hundred",
+            TRANSLATIONS.get(&(hundreds as u16)).unwrap()
+        );
     }
 
     // Tens
@@ -67,11 +69,11 @@ fn number_to_words(number: usize) -> String {
 
     if tens > 0 {
         let translation: &str;
-        let and = if hundreds > 0 {"and"} else {""};
+        let and = if hundreds > 0 { "and" } else { "" };
 
         if n % 10 > 0 && tens == 1 {
             translation = TRANSLATIONS.get(&((10 + (n % 10)) as u16)).unwrap();
-            
+
             n -= n % 10;
         } else {
             translation = TRANSLATIONS.get(&(tens as u16 * 10)).unwrap();
@@ -82,7 +84,7 @@ fn number_to_words(number: usize) -> String {
 
     // Remainder
     if n > 0 {
-        let and = if hundreds > 0 && tens <= 0 {"and"} else {""};
+        let and = if hundreds > 0 && tens <= 0 { "and" } else { "" };
         out = format!("{out}{and}{}", TRANSLATIONS.get(&(n as u16)).unwrap());
     }
 
@@ -104,5 +106,8 @@ fn letter_count(upper_bound: usize) -> usize {
 fn main() {
     let sum = letter_count(1000);
 
-    println!("{} letters would be used to write out all of the numbers from 1 to 1000!", sum);
+    println!(
+        "{} letters would be used to write out all of the numbers from 1 to 1000!",
+        sum
+    );
 }

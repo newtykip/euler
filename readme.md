@@ -11,7 +11,7 @@ I originally started the challenge in [the-honk](https://github.com/newtykins/th
 
 ## Challenge Completion
 
-### <!-- completed -->21<!-- completed --> out of 100 public challenges completed.
+### <!-- completed -->22<!-- completed --> out of 100 public challenges completed.
 
 - [x] 1 - [Multiples of 3 or 5](src/bin/1.rs)
 - [x] 2 - [Even Fibonacci numbers](src/bin/2.rs)
@@ -30,7 +30,7 @@ I originally started the challenge in [the-honk](https://github.com/newtykins/th
 - [x] 15 - [Lattice paths](src/bin/15.rs)
 - [x] 16 - [Power digit sum](src/bin/16.rs)
 - [x] 17 - [Number letter counts](src/bin/17.rs)
-- [ ] 18 - Maximum path sum I
+- [x] 18 - [Maximum path sum I](src/bin/18.rs)
 - [ ] 19 - Counting Sundays
 - [ ] 20 - Factorial digit sum
 - [ ] 21 - Amicable numbers

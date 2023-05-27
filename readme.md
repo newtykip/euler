@@ -16,7 +16,7 @@ All of the solutions here are written in rust. [main.rs](src/main.rs) is the hom
 
 ## Challenge Completion
 
-### <!-- completed -->21<!-- completed --> out of 100 public challenges completed.
+### <!-- completed -->22<!-- completed --> out of 100 public challenges completed.
 
 - [x] 1 - [Multiples of 3 or 5](src/bin/1.rs)
 - [x] 2 - [Even Fibonacci numbers](src/bin/2.rs)
@@ -44,7 +44,7 @@ All of the solutions here are written in rust. [main.rs](src/main.rs) is the hom
 - [ ] 24 - Lexicographic permutations
 - [ ] 25 - 1000-digit Fibonacci number
 - [ ] 26 - Reciprocal cycles
-- [ ] 27 - Quadratic primes
+- [x] 27 - [Quadratic primes](src/bin/27.rs)
 - [ ] 28 - Number spiral diagonals
 - [ ] 29 - Distinct powers
 - [ ] 30 - Digit fifth powers

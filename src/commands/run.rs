@@ -52,8 +52,8 @@ mod twenty_two;
 // mod twenty_five;
 // #[path = "../bin/26.rs"]
 // mod twenty_six;
-// #[path = "../bin/27.rs"]
-// mod twenty_seven;
+#[path = "../bin/27.rs"]
+mod twenty_seven;
 // #[path = "../bin/28.rs"]
 // mod twenty_eight;
 // #[path = "../bin/29.rs"]
@@ -240,7 +240,7 @@ pub async fn execute(
         // 24 => twenty_four::main(),
         // 25 => twenty_five::main(),
         // 26 => twenty_six::main(),
-        // 27 => twenty_seven::main(),
+        27 => twenty_seven::main(),
         // 28 => twenty_eight::main(),
         // 29 => twenty_nine::main(),
         // 30 => thirty::main(),

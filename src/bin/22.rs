@@ -41,7 +41,7 @@ fn name_score_total(names: Vec<String>) -> usize {
     return total;
 }
 
-fn main() {
+pub fn main() {
     let names = read_names();
     let total = name_score_total(names);
 

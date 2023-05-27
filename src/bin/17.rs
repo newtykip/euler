@@ -103,7 +103,7 @@ fn letter_count(upper_bound: usize) -> usize {
     sum
 }
 
-fn main() {
+pub fn main() {
     let sum = letter_count(1000);
 
     println!(

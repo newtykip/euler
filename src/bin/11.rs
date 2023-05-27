@@ -26,6 +26,8 @@ The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
 What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
 */
 
+use rayon::prelude::*;
+
 fn largest_grid_product(grid: Vec<Vec<usize>>, adjacent_digits: usize) -> usize {
     let mut products: Vec<usize> = vec![];
 
@@ -37,7 +39,7 @@ fn largest_grid_product(grid: Vec<Vec<usize>>, adjacent_digits: usize) -> usize 
             // Horizontal product
             if horizontal {
                 let selection = &row[j..(j + adjacent_digits)];
-                products.push(selection.iter().product());
+                products.push(selection.par_iter().product());
             }
 
             // Vertical product
@@ -48,7 +50,7 @@ fn largest_grid_product(grid: Vec<Vec<usize>>, adjacent_digits: usize) -> usize 
                     selection.push(grid[i + k][j]);
                 }
 
-                products.push(selection.iter().product());
+                products.push(selection.par_iter().product());
             }
 
             // Forward diagonal product
@@ -59,7 +61,7 @@ fn largest_grid_product(grid: Vec<Vec<usize>>, adjacent_digits: usize) -> usize 
                     selection.push(grid[i + k][j + k]);
                 }
 
-                products.push(selection.iter().product());
+                products.push(selection.par_iter().product());
             }
 
             // Reverse diagonal product
@@ -70,15 +72,15 @@ fn largest_grid_product(grid: Vec<Vec<usize>>, adjacent_digits: usize) -> usize 
                     selection.push(grid[i + k][j - k]);
                 }
 
-                products.push(selection.iter().product());
+                products.push(selection.par_iter().product());
             }
         }
     }
 
-    return *products.iter().max().unwrap();
+    return *products.par_iter().max().unwrap();
 }
 
-fn main() {
+pub fn main() {
     let grid: Vec<Vec<usize>> = vec![
         vec![
             8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8,

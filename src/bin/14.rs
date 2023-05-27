@@ -10,6 +10,7 @@ Which starting number, under one million, produces the longest chain?
 NOTE:  Once the chain starts the terms are allowed to go above one million.
 */
 
+use rayon::prelude::*;
 use std::collections::HashMap;
 
 fn f(n: usize) -> usize {
@@ -42,10 +43,10 @@ fn longest_collatz_sequence(greatest_start: usize) -> usize {
         sequence_lengths.insert(i, sequence_length);
     }
 
-    return *sequence_lengths.iter().max_by_key(|x| x.1).unwrap().0;
+    return *sequence_lengths.par_iter().max_by_key(|x| x.1).unwrap().0;
 }
 
-fn main() {
+pub fn main() {
     let starting_number = longest_collatz_sequence(1_000_000);
 
     println!(

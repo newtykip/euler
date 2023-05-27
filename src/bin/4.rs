@@ -5,6 +5,8 @@ A palindromic number reads the same both ways. The largest palindrome made from 
 Find the largest palindrome made from the product of two 3-digit numbers.
 */
 
+use rayon::prelude::*;
+
 fn largest_pallindromic_number(lower_bound: usize, upper_bound: usize) -> usize {
     let mut products: Vec<usize> = vec![];
 
@@ -16,7 +18,7 @@ fn largest_pallindromic_number(lower_bound: usize, upper_bound: usize) -> usize 
 
     // Filter for pallindromic numbers
     let mut pallindromic = products
-        .iter()
+        .par_iter()
         .filter(|x| x.to_string() == x.to_string().chars().rev().collect::<String>())
         .collect::<Vec<&usize>>();
 
@@ -27,7 +29,7 @@ fn largest_pallindromic_number(lower_bound: usize, upper_bound: usize) -> usize 
     return *pallindromic[0];
 }
 
-fn main() {
+pub fn main() {
     let number = largest_pallindromic_number(100, 999);
 
     println!("The largest pallindromic number made from the product of two three-digit numbers is {number}");

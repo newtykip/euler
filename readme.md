@@ -7,11 +7,16 @@
 
 All of the solutions here are written in rust. [main.rs](src/main.rs) is the home to my helper command line that can scaffold files for me quickly, prefaced with a statement of the problem! As per the rules of the challenge, I may only publish the solutions to the first 100 problems here, so I will stop after that but still continue the challenge.
 
-I originally started the challenge in [the-honk](https://github.com/newtykins/the-honk) in TypeScript, and am currently in the process of porting over all of my already completed challenges. Check out my old work [here](https://github.com/newtykins/the-honk/tree/main/challenges/euler).
+### Allowed Dependencies
+
+- [rayon](https://lib.rs/rayon) for concurrency
+- [phf](https://lib.rs/phf) for compile-time static maps
+- [regex](https://lib.rs/regex) for regex (duh)
+- [num_bigint](https://lib.rs/num_bigint) for bigints
 
 ## Challenge Completion
 
-### <!-- completed -->22<!-- completed --> out of 100 public challenges completed.
+### <!-- completed -->21<!-- completed --> out of 100 public challenges completed.
 
 - [x] 1 - [Multiples of 3 or 5](src/bin/1.rs)
 - [x] 2 - [Even Fibonacci numbers](src/bin/2.rs)

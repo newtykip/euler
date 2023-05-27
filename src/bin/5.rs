@@ -45,7 +45,7 @@ fn first_value_divisible_by(start: usize, end: usize) -> Option<usize> {
     return Some(result);
 }
 
-fn main() {
+pub fn main() {
     let number = first_value_divisible_by(1, 20).unwrap();
 
     println!("The smallest number that is divisible by all integers between 1 and 20 is {number}");

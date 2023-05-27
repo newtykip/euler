@@ -40,7 +40,7 @@ fn first_triangle_with_n_divisors(n: usize) -> usize {
     }
 }
 
-fn main() {
+pub fn main() {
     let value = first_triangle_with_n_divisors(500);
 
     println!("The first triangle number with over 500 divisors is {value}");

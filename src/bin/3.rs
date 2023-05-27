@@ -29,7 +29,7 @@ fn largest_prime_factor(number: usize) -> usize {
     return primes[primes.len() - 1];
 }
 
-fn main() {
+pub fn main() {
     let factor = largest_prime_factor(600851475143);
     println!("The largest prime factor of 600851475143 is {factor}");
 }

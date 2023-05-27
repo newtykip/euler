@@ -104,6 +104,8 @@ Work out the first ten digits of the sum of the following one-hundred 50-digit n
 53503534226472524250874054075591789781264330331690
 */
 
+use rayon::prelude::*;
+
 const NUMBERS: [f64; 100] = [
     37107287533902102798797998220837590246510135740250.0,
     46376937677490009712648124896970078050417018260538.0,
@@ -221,8 +223,8 @@ fn first_n_digits(number: f64, n: usize) -> Option<usize> {
     return Some(new_number);
 }
 
-fn main() {
-    let digits = first_n_digits(NUMBERS.iter().sum(), 10).unwrap();
+pub fn main() {
+    let digits = first_n_digits(NUMBERS.par_iter().sum(), 10).unwrap();
 
     println!("The first 10 digits of the sum: {digits}");
 }

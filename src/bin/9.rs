@@ -34,7 +34,7 @@ fn triplet_with_sum(sum: isize) -> Option<(isize, isize, isize)> {
     return None;
 }
 
-fn main() {
+pub fn main() {
     let (a, b, c) = triplet_with_sum(1000).unwrap();
 
     println!("a = {a}, b = {b}, c = {c} // abc = {}", a * b * c);

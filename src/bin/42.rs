@@ -49,7 +49,7 @@ fn count_triangle_words(words: Vec<String>) -> usize {
     return count;
 }
 
-fn main() {
+pub fn main() {
     let words = read_words();
     let count = count_triangle_words(words);
 

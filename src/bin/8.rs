@@ -71,7 +71,7 @@ fn largest_product(number: &str, adjacent_digits: usize) -> Option<usize> {
     return Some(products[0]);
 }
 
-fn main() {
+pub fn main() {
     let value = largest_product(NUMBER, ADJACENT_DIGITS).unwrap();
 
     println!("The thirteen adjacent digits in the number that have the greatest product have a product of {value}");

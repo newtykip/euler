@@ -7,6 +7,9 @@ Find the sum of all the primes below two million.
 
 // Implementation of the Sieve of Eratosthenes
 // https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+
+use rayon::prelude::*;
+
 fn find_primes(upper_bound: usize) -> Vec<usize> {
     let mut mask = vec![true; upper_bound];
     let mut primes: Vec<usize> = vec![];
@@ -32,10 +35,10 @@ fn find_primes(upper_bound: usize) -> Vec<usize> {
 
 fn sum_of_primes(upper_bound: usize) -> usize {
     let primes = find_primes(upper_bound);
-    return primes.iter().sum::<usize>();
+    return primes.par_iter().sum::<usize>();
 }
 
-fn main() {
+pub fn main() {
     let value = sum_of_primes(2000000);
 
     println!("The sum of the primes up until 2000000 is {value}");

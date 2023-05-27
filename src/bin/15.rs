@@ -35,7 +35,7 @@ fn count_lattice_paths(width: usize, height: usize) -> usize {
     }
 }
 
-fn main() {
+pub fn main() {
     let routes = count_lattice_paths(20, 20);
 
     println!("The amount of routes through a 20x20 grid is {routes}");

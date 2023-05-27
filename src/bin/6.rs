@@ -9,6 +9,8 @@ Hence the difference between the sum of the squares of the first ten natural num
 Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 */
 
+use rayon::prelude::*;
+
 const LOWER_BOUND: usize = 1;
 const UPPER_BOUND: usize = 100;
 
@@ -23,7 +25,7 @@ fn sum_of_squares(lower_bound: usize, upper_bound: usize) -> Option<usize> {
         squares.push(i.pow(2));
     }
 
-    return Some(squares.iter().sum());
+    return Some(squares.par_iter().sum());
 }
 
 fn square_of_sum(lower_bound: usize, upper_bound: usize) -> Option<usize> {
@@ -34,7 +36,7 @@ fn square_of_sum(lower_bound: usize, upper_bound: usize) -> Option<usize> {
     return Some(((lower_bound..(upper_bound + 1)).sum::<usize>()).pow(2));
 }
 
-fn main() {
+pub fn main() {
     let squared_sum = square_of_sum(LOWER_BOUND, UPPER_BOUND).unwrap();
     let summed_squares = sum_of_squares(LOWER_BOUND, UPPER_BOUND).unwrap();
     let difference = squared_sum - summed_squares;

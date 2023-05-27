@@ -9,5 +9,9 @@
 		"**/target": true,
 		"**/Cargo.lock": true,
 		"**/euler.png": true
+	},
+	"[rust]": {
+		"editor.defaultFormatter": "rust-lang.rust-analyzer",
+		"editor.formatOnSave": true
 	}
 }

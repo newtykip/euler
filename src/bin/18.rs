@@ -37,7 +37,7 @@ fn maximum_path_sum(triangle: Vec<Vec<usize>>) -> usize {
     return tri[0][0];
 }
 
-fn main() {
+pub fn main() {
     let triangle: Vec<Vec<usize>> = vec![
         vec![75],
         vec![95, 64],
@@ -55,7 +55,7 @@ fn main() {
         vec![63, 66, 4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31],
         vec![4, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 4, 23],
     ];
-    
+
     let sum = maximum_path_sum(triangle);
 
     println!("The maximum path sum of the triangle is {}!", sum);

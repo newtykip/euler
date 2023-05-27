@@ -32,7 +32,7 @@ fn power_digit_sum(base: usize, power: u32) -> usize {
     sum
 }
 
-fn main() {
+pub fn main() {
     let sum = power_digit_sum(2, 1000);
 
     println!("The sum of the digits of the number 2^1000 is {}!", sum);

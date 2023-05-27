@@ -54,7 +54,7 @@ fn nth_prime(n: usize) -> Option<usize> {
     return Some(primes[n - 1]);
 }
 
-fn main() {
+pub fn main() {
     let number = nth_prime(10001).unwrap();
 
     println!("The 10,001st prime number is {number}");

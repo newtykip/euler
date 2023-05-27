@@ -5,6 +5,7 @@ If we list all the natural numbers below 10 that are multiples of 3 or 5, we get
 Find the sum of all the multiples of 3 or 5 below 1000.
 */
 
+use rayon::prelude::*;
 use std::collections::HashSet;
 
 fn multiples_of(multipliers: &Vec<usize>, upper_bound: usize) -> HashSet<usize> {
@@ -23,9 +24,9 @@ fn multiples_of(multipliers: &Vec<usize>, upper_bound: usize) -> HashSet<usize> 
     return results;
 }
 
-fn main() {
+pub fn main() {
     let multiples = multiples_of(&vec![3, 5], 1000);
-    let sum: usize = multiples.iter().sum();
+    let sum: usize = multiples.par_iter().sum();
 
     println!("The sum of the multiples of 3 and 5 up until 1000 is {sum}");
 }

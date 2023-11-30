@@ -70,7 +70,9 @@ pub async fn execute(number: Option<u8>) -> Result<()> {
         // add new mod
         let mod_regex = Regex::new(r#"#\[path = ".+"\]\nmod [A-Za-z_]+;"#)?;
         let final_mod = mod_regex.find_iter(&content).last().unwrap();
-        let word_number = num_to_words(problem.number as i64)?.replace(" ", "_");
+        let word_number = num_to_words(problem.number as i64)?
+            .replace(" ", "_")
+            .replace("-", "_");
 
         content.insert_str(
             final_mod.end(),

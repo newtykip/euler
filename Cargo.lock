@@ -363,7 +363,6 @@ version = "1.0.0"
 dependencies = [
  "clap",
  "html-escape",
- "num-bigint",
  "num-to-words",
  "once_cell",
  "owo-colors",

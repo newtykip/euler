@@ -5,14 +5,15 @@
 
 > My solutions to many of Project Euler's problems.
 
-All of the solutions here are written in rust. [main.rs](src/main.rs) is the home to my helper command line that can scaffold files for me quickly, prefaced with a statement of the problem! As per the rules of the challenge, I may only publish the solutions to the first 100 problems here, so I will stop after that but still continue the challenge.
+All of the solutions here are written in rust. [main.rs](src/main.rs) is the home to my helper command line that can scaffold files for me quickly, prefaced with a statement of the problem! As per the rules of the challenge, I may only publish the solutions to the first 100 problems here. I will continue the rest in my own time.
+
+Here is a [link to my profile](https://projecteuler.net/progress=newtykins).
 
 ### Allowed Dependencies
 
-- [rayon](https://lib.rs/rayon) for concurrency
-- [phf](https://lib.rs/phf) for compile-time static maps
+- [rayon](https://lib.rs/rayon) for concurrent iteration
+- [phf](https://lib.rs/phf) for compile-time hashmaps
 - [regex](https://lib.rs/regex) for regex (duh)
-- [num_bigint](https://lib.rs/num_bigint) for bigints
 
 ## Challenge Completion
 

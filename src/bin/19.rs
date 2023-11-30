@@ -36,5 +36,5 @@ pub fn main() {
         }
     }
 
-    println!("The amount of Sundays that fell on the first of the month during the twentieth century is {}.", sundays_on_first);
+    println!("The amount of Sundays that fell on the first of the month during the twentieth century is {}!", sundays_on_first);
 }

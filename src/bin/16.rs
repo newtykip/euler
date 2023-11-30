@@ -5,36 +5,25 @@ Problem 16 - Power digit sum
 What is the sum of the digits of the number 2 1000 ?
 */
 
-use num_bigint::BigUint;
+fn power_digit_sum<const POWER: usize>(base: usize) -> usize {
+    let mut digits = [0u8; POWER];
+    digits[0] = 1; // 2^0 = 1
 
-fn get_digits(number: usize) -> Vec<u32> {
-    return number
-        .to_string()
-        .chars()
-        .map(|d| d.to_digit(10).unwrap())
-        .collect();
-}
+    for _ in 0..POWER {
+        let mut carry = 0;
 
-fn power_digit_sum(base: usize, power: u32) -> usize {
-    let answer = BigUint::new(get_digits(base))
-        .pow(power)
-        .to_string()
-        .chars()
-        .collect::<Vec<char>>();
-
-    let mut sum = 0;
-
-    for i in 0..answer.len() {
-        let number = answer[i].to_string().parse::<usize>().unwrap();
-
-        sum += number;
+        for digit in digits.iter_mut() {
+            let result = *digit as usize * base + carry;
+            *digit = result as u8 % 10;
+            carry = result / 10;
+        }
     }
 
-    sum
+    digits.iter().map(|&x| x as usize).sum()
 }
 
 pub fn main() {
-    let sum = power_digit_sum(2, 1000);
+    let sum = power_digit_sum::<1000>(2);
 
     println!("The sum of the digits of the number 2^1000 is {}!", sum);
 }

@@ -16,7 +16,7 @@ All of the solutions here are written in rust. [main.rs](src/main.rs) is the hom
 
 ## Challenge Completion
 
-### <!-- completed -->22<!-- completed --> out of 100 public challenges completed.
+### 22 out of 100 public challenges completed.
 
 - [x] 1 - [Multiples of 3 or 5](src/bin/1.rs)
 - [x] 2 - [Even Fibonacci numbers](src/bin/2.rs)

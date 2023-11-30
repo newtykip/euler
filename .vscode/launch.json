@@ -1,0 +1,26 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug executable 'euler'",
+			"cargo": {
+				"args": [
+					"build",
+					"--bin=euler",
+					"--package=euler"
+				],
+				"filter": {
+					"name": "euler",
+					"kind": "bin"
+				}
+			},
+			"args": [
+				"new",
+				"30"
+			],
+			"cwd": "${workspaceFolder}"
+		}
+	]
+}

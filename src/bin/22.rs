@@ -5,11 +5,13 @@ Using  names.txt  (right click and 'Save Link/Target As...'), a 46K text file co
 For example, when the list is sorted into alphabetical order, COLIN, which is worth 3 + 15 + 12 + 9 + 14 = 53, is the 938th name in the list. So, COLIN would obtain a score of 938 × 53 = 49714.
 What is the total of all the name scores in the file?
 */
+
+use euler::RESOURCES;
 use regex::Regex;
 use std::fs;
 
 fn read_names() -> Vec<String> {
-    let mut names = fs::read_to_string(euler::resources_path().join("p022_names.txt"))
+    let mut names = fs::read_to_string(RESOURCES.join("p022_names.txt"))
         .unwrap()
         .split(",")
         .map(|name| Regex::new("\"").unwrap().replace_all(name, "").to_string())

@@ -7,11 +7,12 @@ By converting each letter in a word to a number corresponding to its alphabetica
 Using  words.txt  (right click and 'Save Link/Target As...'), a 16K text file containing nearly two-thousand common English words, how many are triangle words?
 */
 
+use euler::RESOURCES;
 use regex::Regex;
 use std::fs;
 
 fn read_words() -> Vec<String> {
-    return fs::read_to_string(euler::resources_path().join("p042_words.txt"))
+    return fs::read_to_string(RESOURCES.join("p042_words.txt"))
         .unwrap()
         .split(",")
         .map(|name| {

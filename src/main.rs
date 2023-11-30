@@ -1,7 +1,11 @@
 #![allow(dead_code)]
 
-use clap::{Args, Parser, Subcommand};
 mod commands;
+
+use std::panic;
+
+use clap::{Args, Parser, Subcommand};
+use euler::{Result, SILENT_PANIC};
 
 #[derive(Parser)]
 #[clap(about, author, version)]
@@ -32,11 +36,22 @@ enum Commands {
     Run(RunArgs),
 }
 
-pub fn main() -> Result<(), Box<dyn std::error::Error>> {
+#[tokio::main]
+pub async fn main() -> Result<()> {
+    panic::set_hook(Box::new(move |panic_info| {
+        if unsafe { SILENT_PANIC } {
+            std::process::exit(0);
+        } else {
+            println!("{}", panic_info.to_string());
+        }
+    }));
+
     let value = Value::parse();
 
     match value.command {
-        Commands::New(NewArgs { problem }) => commands::new::execute(problem),
-        Commands::Run(RunArgs { problem, benchmark }) => commands::run::execute(problem, benchmark),
+        Commands::New(NewArgs { problem }) => commands::new::execute(problem).await,
+        Commands::Run(RunArgs { problem, benchmark }) => {
+            commands::run::execute(problem, benchmark).await
+        }
     }
 }

@@ -21,8 +21,6 @@ impl Problem {
                     // ensure the number is in bound
                     if n <= 0 {
                         Err("Please enter a number greater than 0".to_string())
-                    } else if n > 100 {
-                        Err("Please enter a number less than or equal to 100".to_string())
                     }
                     // ensure that the problem has not already got a file associated with it
                     else {
@@ -64,7 +62,7 @@ impl Problem {
         let number = number
             .unwrap_or_else(|| Self::prompt_number("Please select a problem:", false).unwrap());
 
-        let body = reqwest::get(format!("https://projecteuler.net/minimal={number}"))
+        let body = reqwest::get(format!("https://projecteuler.net/problem={number}"))
             .await?
             .text()
             .await?;

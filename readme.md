@@ -17,7 +17,7 @@ Here is a [link to my profile](https://projecteuler.net/progress=newtykins).
 
 ## Challenge Completion
 
-### 23 out of 100 public challenges completed.
+### 25 out of 100 public challenges completed.
 
 - [x] 1 - [Multiples of 3 or 5](src/bin/1.rs)
 - [x] 2 - [Even Fibonacci numbers](src/bin/2.rs)
@@ -38,7 +38,7 @@ Here is a [link to my profile](https://projecteuler.net/progress=newtykins).
 - [x] 17 - [Number letter counts](src/bin/17.rs)
 - [x] 18 - [Maximum path sum I](src/bin/18.rs)
 - [x] 19 - Counting Sundays
-- [ ] 20 - Factorial digit sum
+- [x] 20 - Factorial digit sum
 - [ ] 21 - Amicable numbers
 - [x] 22 - [Names scores](src/bin/22.rs)
 - [ ] 23 - Non-abundant sums

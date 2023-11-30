@@ -5,11 +5,11 @@ Problem 16 - Power digit sum
 What is the sum of the digits of the number 2 1000 ?
 */
 
-fn power_digit_sum<const POWER: usize>(base: usize) -> usize {
-    let mut digits = [0u8; POWER];
+fn power_digit_sum(base: usize, power: usize) -> usize {
+    let mut digits = vec![0u8; power];
     digits[0] = 1; // 2^0 = 1
 
-    for _ in 0..POWER {
+    for _ in 0..power {
         let mut carry = 0;
 
         for digit in digits.iter_mut() {
@@ -23,7 +23,7 @@ fn power_digit_sum<const POWER: usize>(base: usize) -> usize {
 }
 
 pub fn main() {
-    let sum = power_digit_sum::<1000>(2);
+    let sum = power_digit_sum(2, 1000);
 
     println!("The sum of the digits of the number 2^1000 is {}!", sum);
 }

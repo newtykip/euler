@@ -17,40 +17,42 @@ pub async fn execute(number: Option<u8>) -> Result<()> {
     file.write(problem.file_body().as_bytes())?;
     drop(file);
 
-    // open readme
-    let mut readme_file = OpenOptions::new().read(true).open(README.clone())?;
+    if problem.number <= 100 {
+        // open readme
+        let mut readme_file = OpenOptions::new().read(true).open(README.clone())?;
 
-    let readme_content = {
-        // read
-        let mut content = BufReader::new(&readme_file)
-            .lines()
-            .map(|s| s.unwrap())
-            .collect::<Vec<String>>()
-            .join("\n");
+        let readme_content = {
+            // read
+            let mut content = BufReader::new(&readme_file)
+                .lines()
+                .map(|s| s.unwrap())
+                .collect::<Vec<String>>()
+                .join("\n");
 
+            drop(readme_file);
+
+            // mark problem as done on readme
+            content = content.replace(
+                &format!("\n- [ ] {}", problem.number),
+                &format!("\n- [x] {}", problem.number),
+            );
+
+            // update completed count
+            let completion_regex = Regex::new(r"(\d+) out of")?;
+            let problem_count = fs::read_dir(SOLUTIONS.clone())?.count();
+
+            content = completion_regex
+                .replace(&content, format!("{} out of", problem_count))
+                .to_string();
+
+            content
+        };
+
+        // write the new content to the readme
+        readme_file = OpenOptions::new().write(true).open(README.clone())?;
+        readme_file.write(readme_content.as_bytes())?;
         drop(readme_file);
-
-        // mark problem as done on readme
-        content = content.replace(
-            &format!("\n- [ ] {}", problem.number),
-            &format!("\n- [x] {}", problem.number),
-        );
-
-        // update completed count
-        let completion_regex = Regex::new(r"(\d+) out of")?;
-        let problem_count = fs::read_dir(SOLUTIONS.clone())?.count();
-
-        content = completion_regex
-            .replace(&content, format!("{} out of", problem_count))
-            .to_string();
-
-        content
-    };
-
-    // write the new content to the readme
-    readme_file = OpenOptions::new().write(true).open(README.clone())?;
-    readme_file.write(readme_content.as_bytes())?;
-    drop(readme_file);
+    }
 
     // add the problem to the run command
     let mut run_file = OpenOptions::new()

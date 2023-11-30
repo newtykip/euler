@@ -16,7 +16,7 @@ All of the solutions here are written in rust. [main.rs](src/main.rs) is the hom
 
 ## Challenge Completion
 
-### 22 out of 100 public challenges completed.
+### 23 out of 100 public challenges completed.
 
 - [x] 1 - [Multiples of 3 or 5](src/bin/1.rs)
 - [x] 2 - [Even Fibonacci numbers](src/bin/2.rs)
@@ -36,7 +36,7 @@ All of the solutions here are written in rust. [main.rs](src/main.rs) is the hom
 - [x] 16 - [Power digit sum](src/bin/16.rs)
 - [x] 17 - [Number letter counts](src/bin/17.rs)
 - [x] 18 - [Maximum path sum I](src/bin/18.rs)
-- [ ] 19 - Counting Sundays
+- [x] 19 - Counting Sundays
 - [ ] 20 - Factorial digit sum
 - [ ] 21 - Amicable numbers
 - [x] 22 - [Names scores](src/bin/22.rs)

@@ -64,7 +64,7 @@ impl Problem {
         let number = number
             .unwrap_or_else(|| Self::prompt_number("Please select a problem:", false).unwrap());
 
-        let body = reqwest::get(format!("https://projecteuler.net/problem={number}"))
+        let body = reqwest::get(format!("https://projecteuler.net/minimal={number}"))
             .await?
             .text()
             .await?;
@@ -105,14 +105,14 @@ impl Problem {
     pub fn file_body(&self) -> String {
         format!(
             "/*
-    Problem {} - {}
+Problem {} - {}
+
+{}
+*/
     
-    {}
-    */
-    
-    pub fn main() {{
-        println!(\"Hello World!\");
-    }}",
+pub fn main() {{
+    println!(\"Hello World!\");
+}}",
             self.number,
             html_escape::decode_html_entities(&self.title).to_string(),
             html_escape::decode_html_entities(&self.content)

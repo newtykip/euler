@@ -20,6 +20,8 @@ mod four;
 mod fourteen;
 #[path = "../bin/9.rs"]
 mod nine;
+#[path = "../bin/19.rs"]
+mod nineteen;
 #[path = "../bin/1.rs"]
 mod one;
 #[path = "../bin/7.rs"]
@@ -84,6 +86,7 @@ pub async fn execute(
         22 => twenty_two::main(),
         27 => twenty_seven::main(),
         67 => sixty_seven::main(),
+        19 => nineteen::main(),
         _ => {
             exists = false;
             println!(

@@ -39,7 +39,7 @@ Here is a [link to my profile](https://projecteuler.net/progress=newtykins).
 - [x] 18 - [Maximum path sum I](src/bin/18.rs)
 - [x] 19 - Counting Sundays
 - [x] 20 - Factorial digit sum
-- [ ] 21 - Amicable numbers
+- [x] 21 - Amicable numbers
 - [x] 22 - [Names scores](src/bin/22.rs)
 - [ ] 23 - Non-abundant sums
 - [ ] 24 - Lexicographic permutations

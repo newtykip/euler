@@ -54,6 +54,8 @@ mod twenty_three;
 mod twenty_two;
 #[path = "../bin/2.rs"]
 mod two;
+#[path = "../bin/24.rs"]
+mod twenty_four;
 
 pub async fn execute(
     problem: Option<u8>,
@@ -96,6 +98,7 @@ pub async fn execute(
         20 => twenty::main(),
         21 => twenty_one::main(),
         23 => twenty_three::main(),
+        24 => twenty_four::main(),
         _ => {
             exists = false;
             println!(

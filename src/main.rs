@@ -30,9 +30,11 @@ struct RunArgs {
 #[derive(Subcommand)]
 enum Commands {
     /// Handles the initialisation of a new Project Euler Problem
+    #[clap(alias = "n")]
     New(NewArgs),
 
     /// Runs the solution to a problem
+    #[clap(alias = "r")]
     Run(RunArgs),
 }
 

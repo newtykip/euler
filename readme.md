@@ -17,7 +17,7 @@ Here is a [link to my profile](https://projecteuler.net/progress=newtykins).
 
 ## Challenge Completion
 
-### 28 out of 100 public challenges completed.
+### 29 out of 100 public challenges completed.
 
 - [x] 1 - [Multiples of 3 or 5](src/bin/1.rs)
 - [x] 2 - [Even Fibonacci numbers](src/bin/2.rs)
@@ -44,7 +44,7 @@ Here is a [link to my profile](https://projecteuler.net/progress=newtykins).
 - [x] 23 - Non-abundant sums
 - [x] 24 - Lexicographic permutations
 - [x] 25 - 1000-digit Fibonacci number
-- [ ] 26 - Reciprocal cycles
+- [x] 26 - Reciprocal cycles
 - [x] 27 - [Quadratic primes](src/bin/27.rs)
 - [ ] 28 - Number spiral diagonals
 - [ ] 29 - Distinct powers
